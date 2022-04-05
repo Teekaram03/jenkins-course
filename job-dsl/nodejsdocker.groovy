@@ -1,4 +1,4 @@
-job('NodeJS Docker example') {
+job('NodeJS Docker DSL') {
     scm {
         git('https://github.com/Teekaram03/Docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
@@ -14,7 +14,7 @@ job('NodeJS Docker example') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('Teekaram03/docker-nodejs-demo')
+            repositoryName('teeka/docker-nodejs-demo')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
